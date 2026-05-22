@@ -1,0 +1,12 @@
+
+
+1) a class describes "what an object is", while an interface describes "what an object can do".
+
+
+2)Yes, interfaces can have fields. However, all fields in an interface are implicitly:
+1.	public — accessible from anywhere
+2.	static — shared across all classes, not tied to instances
+3.	final — constant values that cannot be modified
+
+
+3)Yes, a class can implement multiple interfaces at the same time

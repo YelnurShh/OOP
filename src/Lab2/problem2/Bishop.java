@@ -1,0 +1,28 @@
+package Lab2.problem2;
+
+public class Bishop extends Piece {
+	public Bishop(Position position, boolean isWhite) {
+		super(position, isWhite);
+	}
+
+	@Override
+	public boolean isLegalMove(Position target, Board board) {
+		if (target.equals(position))
+			return false;
+		if (!target.isValid())
+			return false;
+		int dr = Math.abs(target.getRow() - position.getRow());
+		int dc = Math.abs(target.getCol() - position.getCol());
+		if (dr != dc)
+			return false;
+		Piece atTarget = board.getPiece(target);
+		if (atTarget != null && atTarget.isWhite() == isWhite)
+			return false;
+		return board.isPathClear(position, target);
+	}
+
+	@Override
+	public String getSymbol() {
+		return "B";
+	}
+}
